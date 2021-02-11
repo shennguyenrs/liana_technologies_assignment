@@ -1,0 +1,198 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+}
+body a {
+  text-decoration: none;
+  color: inherit;
+}
+body ul {
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+body li {
+  list-style-type: none;
+  padding: 0 0.5em;
+}
+body p {
+  margin: 0;
+}
+body img {
+  max-width: 100%;
+  max-height: 100%;
+}
+body h2 {
+  margin-bottom: 4vh;
+}
+body h3 {
+  margin: 0;
+}
+body .on-left {
+  float: left;
+}
+body .on-right {
+  float: right;
+}
+body .btn-primary {
+  background-color: #4c8930;
+}
+body .img-container:after {
+  content: "\a";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  opacity: 1;
+}
+body .center-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+}
+header ul {
+  float: right;
+}
+header .first-nav {
+  padding: 1.5vh 9vw;
+  background: #4c8930;
+}
+header .first-nav li:nth-child(3) {
+  padding-right: 0;
+}
+header .second-nav {
+  background: white;
+  padding: 3vh 9vw;
+}
+header .second-nav a {
+  color: #999999;
+}
+header .second-nav img {
+  max-width: 8vw;
+  margin-right: 4vw;
+}
+header .second-nav form {
+  display: flex;
+}
+header .second-nav input {
+  margin-right: 0.5em;
+}
+
+.hero-section {
+  position: relative;
+  margin-bottom: 8vh;
+}
+.hero-section .img-container {
+  width: 100%;
+  height: 70vh;
+}
+.hero-section .img-container img {
+  width: 100%;
+  object-fit: cover;
+  object-position: bottom;
+}
+.hero-section h1 {
+  margin-bottom: 8vh;
+}
+
+.body-section .col3-img {
+  padding: 0 9vw;
+  margin-bottom: 8vh;
+}
+.body-section .col3-img .img-container {
+  max-width: 25vw;
+  position: relative;
+}
+.body-section .col3-img .img-container .center-container {
+  z-index: 1;
+}
+.body-section .col3-img img {
+  border-radius: 2%;
+}
+.body-section .col3-img .img-container:after {
+  border-radius: 2%;
+  z-index: 0;
+}
+.body-section .col3-number {
+  padding: 0 21vw;
+  margin-bottom: 9vh;
+}
+.body-section .col3-number .on-left {
+  margin-right: 2vw;
+}
+.body-section .col3-number h3 {
+  font-size: 3em;
+}
+
+.news-section {
+  background-color: #eceeef;
+  text-align: center;
+  padding: 6vh 9vw;
+}
+.news-section .card {
+  max-width: 25vw;
+  padding: 2em;
+  text-align: left;
+}
+.news-section .card .date {
+  margin-bottom: 0.5em;
+  font-size: 0.8em;
+}
+
+.references-section {
+  text-align: center;
+  padding: 6vh 9vw;
+}
+.references-section .card {
+  max-width: 18vw;
+}
+.references-section .card .logo:after {
+  content: "";
+  display: inline-block;
+  width: 100%;
+  border-bottom: 2px solid #eceeef;
+}
+.references-section .card h5 {
+  margin: 1em 0;
+}
+.references-section .card p {
+  padding: 0 1em 4em 1em;
+}
+
+.newsletter-section {
+  text-align: center;
+  padding: 6vh 0;
+}
+.newsletter-section .form-group {
+  margin: 0 33vw;
+  margin-top: 4vh;
+}
+.newsletter-section .form-group button {
+  margin-left: 1em;
+}
+
+footer {
+  background-color: black;
+  color: white;
+  padding: 4vh 9vw;
+}
+footer .upper-footer {
+  margin-bottom: 4vh;
+}
+footer .lower-footer .on-left {
+  margin-right: 3em;
+}
+
+/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,202 @@
+// Global Variables
+$font: 'Open Sans', sans-serif
+$font-size: 16px
+$bg-green: #4c8930
+$bg-gray: #eceeef
+$text-gray: #999999
+
+$p-st: 9vw
+$p-nd: 21vw
+$p-rd: 33vw
+
+body
+  margin: 0
+  padding: 0
+  font-family: $font
+  font-size: $font-size
+
+  a
+    text-decoration: none
+    color: inherit
+
+  ul
+    margin: 0
+    display: flex
+    align-items: center
+
+  li
+    list-style-type: none
+    padding: 0 0.5em
+
+  p
+    margin: 0
+
+  img
+    max-width: 100%
+    max-height: 100%
+
+  h2
+    margin-bottom: 4vh
+
+  h3
+    margin: 0
+
+  .on-left
+    float: left
+
+  .on-right
+    float: right
+
+  .btn-primary 
+    background-color: $bg-green
+
+  .img-container:after
+    content: '\a'
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background: rgba(0, 0, 0, 0.6)
+    opacity: 1
+
+  .center-container
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    color: white
+    text-align: center
+
+header
+  display: flex
+  flex-direction: column
+  
+  ul
+    float: right
+
+  .first-nav
+    padding: 1.5vh $p-st
+    background: $bg-green
+
+    li:nth-child(3)
+      padding-right: 0
+
+  .second-nav
+    background: white
+    padding: 3vh $p-st
+
+    a
+      color: $text-gray
+
+    img
+      max-width: 8vw
+      margin-right: 4vw
+
+    form
+      display: flex
+
+    input
+      margin-right: 0.5em
+
+.hero-section
+  position: relative
+  margin-bottom: 8vh
+
+  .img-container
+    width: 100%
+    height: 70vh
+
+    img 
+      width: 100%
+      object-fit: cover
+      object-position: bottom
+  
+  h1 
+    margin-bottom: 8vh
+
+.body-section
+  .col3-img
+    padding: 0 $p-st 
+    margin-bottom: 8vh
+
+    .img-container
+      max-width: 25vw
+      position: relative
+
+      .center-container
+        z-index: 1
+
+    img
+      border-radius: 2%
+
+    .img-container:after
+      border-radius: 2%
+      z-index: 0
+  
+  .col3-number
+    padding: 0 $p-nd
+    margin-bottom: 9vh
+    
+    .on-left
+      margin-right: 2vw
+
+    h3
+     font-size: 3em
+
+.news-section
+  background-color: $bg-gray
+  text-align: center
+  padding: 6vh $p-st
+
+
+  .card
+    max-width: 25vw
+    padding: 2em
+    text-align: left
+
+    .date
+      margin-bottom: 0.5em
+      font-size: 0.8em
+
+.references-section
+  text-align: center
+  padding: 6vh $p-st
+
+  .card
+    max-width: 18vw
+
+    .logo:after
+      content:''
+      display: inline-block
+      width: 100%
+      border-bottom: 2px solid $bg-gray
+
+    h5
+      margin: 1em 0
+
+    p
+      padding: 0 1em 4em 1em
+
+.newsletter-section
+  text-align: center
+  padding: 6vh 0
+
+  .form-group 
+    margin: 0 $p-rd
+    margin-top: 4vh
+
+    button
+      margin-left: 1em
+
+footer
+  background-color: black
+  color: white
+  padding: 4vh $p-st
+
+  .upper-footer
+    margin-bottom: 4vh
+
+  .lower-footer
+    .on-left 
+      margin-right: 3em
