@@ -1,19 +1,12 @@
-// Global Variables
-$font: 'Open Sans', sans-serif
-$font-size: 16px
-$bg-green: #4c8930
-$bg-gray: #eceeef
-$text-gray: #999999
-
-$p-st: 9vw
-$p-nd: 21vw
-$p-rd: 33vw
+@import './variables'
+@import './functions'
+@import './mixins'
 
 body
   margin: 0
   padding: 0
   font-family: $font
-  font-size: $font-size
+  font-size:  get-font-size("desktop")
 
   a
     text-decoration: none
@@ -48,10 +41,10 @@ body
     float: right
 
   .btn-primary 
-    background-color: $bg-green
+    background-color: get-color(bg-green)
 
-  .img-container:after
-    content: '\a'
+  .img-container::after
+    content: ''
     position: absolute
     top: 0
     left: 0
@@ -65,7 +58,7 @@ body
     top: 50%
     left: 50%
     transform: translate(-50%, -50%)
-    color: white
+    color: get-color(bg-white)
     text-align: center
 
 header
@@ -76,18 +69,18 @@ header
     float: right
 
   .first-nav
-    padding: 1.5vh $p-st
-    background: $bg-green
+    @include st-custom-tb(1.5vh)
+    background: get-color(bg-green)
 
     li:nth-child(3)
       padding-right: 0
 
   .second-nav
-    background: white
-    padding: 3vh $p-st
+    @include st-custom-tb(3vh)
+    background: get-color(bg-white)
 
     a
-      color: $text-gray
+      color: get-color(text-gray)
 
     img
       max-width: 8vw
@@ -117,7 +110,7 @@ header
 
 .body-section
   .col3-img
-    padding: 0 $p-st 
+    @include st-custom-tb(0)
     margin-bottom: 8vh
 
     .img-container
@@ -127,15 +120,15 @@ header
       .center-container
         z-index: 1
 
-    img
-      border-radius: 2%
-
-    .img-container:after
+    &::after
       border-radius: 2%
       z-index: 0
+
+    img
+      border-radius: 2%
   
   .col3-number
-    padding: 0 $p-nd
+    @include nd-custom-tb(0)
     margin-bottom: 9vh
     
     .on-left
@@ -145,10 +138,9 @@ header
      font-size: 3em
 
 .news-section
-  background-color: $bg-gray
+  @include st-custom-tb(6vh)
+  background-color: get-color(bg-gray)
   text-align: center
-  padding: 6vh $p-st
-
 
   .card
     max-width: 25vw
@@ -161,16 +153,16 @@ header
 
 .references-section
   text-align: center
-  padding: 6vh $p-st
+  @include st-custom-tb(6vh)
 
   .card
     max-width: 18vw
 
-    .logo:after
+    .logo::after
       content:''
       display: inline-block
       width: 100%
-      border-bottom: 2px solid $bg-gray
+      border-bottom: 2px solid get-color(bg-gray)
 
     h5
       margin: 1em 0
@@ -183,16 +175,16 @@ header
   padding: 6vh 0
 
   .form-group 
-    margin: 0 $p-rd
+    margin: 0 get-padding(p-rd)
     margin-top: 4vh
 
     button
       margin-left: 1em
 
 footer
-  background-color: black
-  color: white
-  padding: 4vh $p-st
+  @include st-custom-tb(4vh)
+  background-color: get-color(bg-black)
+  color: get-color(bg-white)
 
   .upper-footer
     margin-bottom: 4vh
@@ -200,3 +192,7 @@ footer
   .lower-footer
     .on-left 
       margin-right: 3em
+    
+    .on-right
+      img 
+        max-width: 2vw

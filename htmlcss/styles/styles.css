@@ -39,8 +39,8 @@ body .on-right {
 body .btn-primary {
   background-color: #4c8930;
 }
-body .img-container:after {
-  content: "\a";
+body .img-container::after {
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -73,8 +73,8 @@ header .first-nav li:nth-child(3) {
   padding-right: 0;
 }
 header .second-nav {
-  background: white;
   padding: 3vh 9vw;
+  background: white;
 }
 header .second-nav a {
   color: #999999;
@@ -118,12 +118,12 @@ header .second-nav input {
 .body-section .col3-img .img-container .center-container {
   z-index: 1;
 }
-.body-section .col3-img img {
-  border-radius: 2%;
-}
-.body-section .col3-img .img-container:after {
+.body-section .col3-img::after {
   border-radius: 2%;
   z-index: 0;
+}
+.body-section .col3-img img {
+  border-radius: 2%;
 }
 .body-section .col3-number {
   padding: 0 21vw;
@@ -137,9 +137,9 @@ header .second-nav input {
 }
 
 .news-section {
+  padding: 6vh 9vw;
   background-color: #eceeef;
   text-align: center;
-  padding: 6vh 9vw;
 }
 .news-section .card {
   max-width: 25vw;
@@ -158,7 +158,7 @@ header .second-nav input {
 .references-section .card {
   max-width: 18vw;
 }
-.references-section .card .logo:after {
+.references-section .card .logo::after {
   content: "";
   display: inline-block;
   width: 100%;
@@ -184,15 +184,18 @@ header .second-nav input {
 }
 
 footer {
+  padding: 4vh 9vw;
   background-color: black;
   color: white;
-  padding: 4vh 9vw;
 }
 footer .upper-footer {
   margin-bottom: 4vh;
 }
 footer .lower-footer .on-left {
   margin-right: 3em;
+}
+footer .lower-footer .on-right img {
+  max-width: 2vw;
 }
 
 /*# sourceMappingURL=styles.css.map */
