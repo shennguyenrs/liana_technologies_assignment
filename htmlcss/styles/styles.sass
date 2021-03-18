@@ -7,6 +7,10 @@ body
   padding: 0
   font-family: $font
   font-size:  get-font-size("desktop")
+  @include respond(medium)
+    font-size: get-font-size("tablet")
+  @include respond(small)
+    font-size: get-font-size("mobile")
 
   a
     text-decoration: none
@@ -20,9 +24,20 @@ body
   li
     list-style-type: none
     padding: 0 0.5em
+    @include respond(small)
+      padding: 0 0.3em
 
   p
     margin: 0
+
+  .btn-sm
+    font-size: inherit
+    @include respond(small)
+      font-size: 0.8em
+      padding: 0.4em 0.6em
+
+  .form-control
+    font-size: 1em
 
   img
     max-width: 100%
@@ -30,9 +45,15 @@ body
 
   h2
     margin-bottom: 4vh
+    @include respond(small)
+      font-size: 2em
 
   h3
     margin: 0
+
+  h5
+    @include respond(small)
+      font-size: 1.5em
 
   .on-left
     float: left
@@ -69,15 +90,28 @@ header
     float: right
 
   .first-nav
-    @include st-custom-tb(1.5vh)
+    color: get-color(bg-white)
+    padding: 1.5vh get-p-desktop(p-st)
     background: get-color(bg-green)
+    @include respond(medium)
+      padding: 1vh get-p-tablet(p-st)
+    @include respond(small)
+      padding: 1vh get-p-mobile(p-st)
 
     li:nth-child(3)
       padding-right: 0
 
   .second-nav
-    @include st-custom-tb(3vh)
+    padding: 3vh get-p-desktop(p-st)
     background: get-color(bg-white)
+    @include respond(medium)
+      padding: 2vh get-p-tablet(p-st)
+    @include respond(small)
+      padding: 2vh get-p-mobile(p-st)
+
+    ul
+      @include respond(small)
+        padding: 0
 
     a
       color: get-color(text-gray)
@@ -85,20 +119,35 @@ header
     img
       max-width: 8vw
       margin-right: 4vw
+      @include respond(medium)
+        max-width: 10vw
+        margin-right: 2vw
+      @include respond(small)
+        max-width: 10vw
+        margin-right: 2vw
 
     form
       display: flex
 
     input
       margin-right: 0.5em
+      padding: 0 0.5em
+      @include respond(medium)
+        max-width: 25vw
 
 .hero-section
   position: relative
   margin-bottom: 8vh
+  @include respond(small)
+  margin-bottom: 4vh 
 
   .img-container
     width: 100%
     height: 70vh
+    @include respond(medium)
+      height: 40vh
+    @include respond(small)
+      height: 35vh
 
     img 
       width: 100%
@@ -107,18 +156,31 @@ header
   
   h1 
     margin-bottom: 8vh
+    @include respond(small)
+      margin-bottom: 4vh
 
 .body-section
   .col3-img
-    @include st-custom-tb(0)
+    padding: 0 get-p-desktop(p-st)
     margin-bottom: 8vh
+    @include respond(medium)
+      padding: 0 get-p-tablet(p-st)
+    @include respond(small)
+      padding: 0 get-p-mobile(p-st)
+      margin-bottom: 4vh
 
     .img-container
       max-width: 25vw
       position: relative
+      @include respond(medium)
+        max-width: 30vw
 
       .center-container
         z-index: 1
+
+      h3
+        @include respond(small)
+          font-size: 1.2em
 
     &::after
       border-radius: 2%
@@ -128,24 +190,54 @@ header
       border-radius: 2%
   
   .col3-number
-    @include nd-custom-tb(0)
-    margin-bottom: 9vh
+    padding: 0 get-p-desktop(p-nd)
+    margin-bottom: 8vh
+    @include respond(medium)
+      padding: 0 get-p-tablet(p-nd)
+    @include respond(small)
+      padding: 0 get-p-mobile(p-nd)
+      margin-bottom: 4vh
     
     .on-left
       margin-right: 2vw
+      @include respond(small)
+        display: flex
+        justify-content: center
+        align-items: flex-start
+        margin-right: 0
+
+    img 
+      @include respond(small)
+        max-width: 50%
 
     h3
-     font-size: 3em
+      font-size: 3em
+      @include respond(small)
+        font-size: 1.6em
+
+    p
+      @include respond(small)
+        font-size: 0.8em
 
 .news-section
-  @include st-custom-tb(6vh)
+  padding: 6vh get-p-desktop(p-st)
   background-color: get-color(bg-gray)
   text-align: center
+  @include respond(medium)
+    padding: 6vh get-p-tablet(p-st)
+  @include respond(small)
+    padding: 4vh get-p-mobile(p-st)
 
   .card
     max-width: 25vw
     padding: 2em
     text-align: left
+    @include respond(medium)
+      max-width: 30vw
+      padding: 1em
+    @include respond(small)
+      max-width: 30vw
+      padding: 1em
 
     .date
       margin-bottom: 0.5em
@@ -153,10 +245,27 @@ header
 
 .references-section
   text-align: center
-  @include st-custom-tb(6vh)
+  padding: 6vh get-p-desktop(p-st)
+  @include respond(medium)
+    padding: 6vh get-p-tablet(p-st)
+  @include respond(small)
+    padding: 6vh get-p-mobile(p-st)
+
+  .container
+    margin: 0
+    padding: 0
+    display: grid
+    grid-template-columns: 25% 25% 25% 25%
+    @include respond(small)
+      grid-template-columns: 50% 50%
+      row-gap: 2vh
 
   .card
-    max-width: 18vw
+    margin-bottom: 0
+    max-width: 95%
+    justify-self: center
+    @include respond(small)
+      max-width: 42vw
 
     .logo::after
       content:''
@@ -169,25 +278,61 @@ header
 
     p
       padding: 0 1em 4em 1em
+      @include respond(medium)
+        padding: 0 1em 2.5em 1em
+      @include respond(small)
+        padding: 0 1em 2.5em 1em
+
+  .card:first-child
+    justify-self: start
+    @include respond(small)
+      justify-self: center
+
+  .card:last-child
+    justify-self: end
+    @include respond(small)
+      justify-self: center
 
 .newsletter-section
   text-align: center
   padding: 6vh 0
+  @include respond(medium)
+    padding: 4vh 0
 
   .form-group 
-    margin: 0 get-padding(p-rd)
+    margin: 0 get-p-desktop(p-rd)
     margin-top: 4vh
+    @include respond(medium)
+      margin: 0 get-p-tablet(p-rd)
+      margin-top: 4vh
+    @include respond(small)
+      margin: 0 get-p-mobile(p-rd)
+      margin-top: 4vh
+
+    input
+      padding: 0 0.5em
 
     button
       margin-left: 1em
 
 footer
-  @include st-custom-tb(4vh)
+  padding: 4vh get-p-desktop(p-st)
   background-color: get-color(bg-black)
   color: get-color(bg-white)
+  @include respond(medium)
+    padding: 4vh get-p-tablet(p-st)
+  @include respond(small)
+    padding: 4vh get-p-mobile(p-st)
 
   .upper-footer
     margin-bottom: 4vh
+
+    .on-left h5
+      @include respond(small)
+        line-height: 1.5em
+
+    .on-right
+      text-align: center
 
   .lower-footer
     .on-left 
@@ -196,3 +341,7 @@ footer
     .on-right
       img 
         max-width: 2vw
+        @include respond(medium)
+          max-width: 5vw
+        @include respond(small)
+          max-width: 5vw
