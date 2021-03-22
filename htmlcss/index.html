@@ -29,6 +29,11 @@
     <title>Liana Technologies Assignment</title>
   </head>
   <body>
+    <div class="thankyou" onclick="offOverlay()">
+      <div class="thankyou__text">
+        You subscribed newsletter successfully! Thank you!
+      </div>
+    </div>
     <header>
       <div class="first-nav">
         <ul>
@@ -224,14 +229,33 @@
       <h2>Subscribe to our newsletter</h2>
       <p>Follow our story and get the latest promotional</p>
       <p>news about our products and events</p>
-      <div class="form-group d-flex">
-        <input
-          type="email"
-          class="form-control"
-          placeholder="Your email address"
-        />
-        <button type="submit" class="btn btn-primary btn-sm">Subscribe</button>
-      </div>
+      <form name="post-data" method="post">
+        <div class="form-group d-flex">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Your email address"
+            name="email"
+          />
+          <button
+            type="submit"
+            class="btn btn-primary btn-sm"
+            onclick="handleSubmit()"
+          >
+            Subscribe
+          </button>
+          <div class="spinner-border text-primary" role="status">
+            <span class="sr-only"></span>
+          </div>
+        </div>
+        <div class="utm-parser">
+          <input type="text" class="utm_source" name="utm_source" />
+          <input type="text" class="utm_medium" name="utm_medium" />
+          <input type="text" class="utm_term" name="utm_term" />
+          <input type="text" class="utm_campaign" name="utm_campaign" />
+          <input type="text" class="utm_content" name="utm_content" />
+        </div>
+      </form>
     </div>
     <footer>
       <div class="upper-footer d-flex justify-content-between">

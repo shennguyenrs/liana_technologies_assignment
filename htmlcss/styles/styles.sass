@@ -2,6 +2,8 @@
 @import './functions'
 @import './mixins'
 
+
+// General Style
 body
   margin: 0
   padding: 0
@@ -82,6 +84,32 @@ body
     color: get-color(bg-white)
     text-align: center
 
+
+// Thank you overlay
+.thankyou
+  position: fixed
+  display: none
+  width: 100%
+  height: 100%
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  background-color: rgba(0, 0, 0, 0.8)
+  z-index: 2
+  cursor: pointer
+
+  .thankyou__text
+    position: absolute
+    top: 50%
+    left: 50%
+    font-size: 2em
+    text-align: center
+    color: get-color(bg-white)
+    transform: translate(-50%, -50%)
+  
+
+// Header Section
 header
   display: flex
   flex-direction: column
@@ -116,6 +144,9 @@ header
     a
       color: get-color(text-gray)
 
+    a:hover
+      color: get-color(bg-green)
+
     img
       max-width: 8vw
       margin-right: 4vw
@@ -135,6 +166,9 @@ header
       @include respond(medium)
         max-width: 25vw
 
+
+
+// Hero Section
 .hero-section
   position: relative
   margin-bottom: 8vh
@@ -153,12 +187,15 @@ header
       width: 100%
       object-fit: cover
       object-position: bottom
-  
+
   h1 
     margin-bottom: 8vh
     @include respond(small)
       margin-bottom: 4vh
 
+
+
+// Body Section
 .body-section
   .col3-img
     padding: 0 get-p-desktop(p-st)
@@ -219,6 +256,9 @@ header
       @include respond(small)
         font-size: 0.8em
 
+
+
+// News Section
 .news-section
   padding: 6vh get-p-desktop(p-st)
   background-color: get-color(bg-gray)
@@ -243,6 +283,9 @@ header
       margin-bottom: 0.5em
       font-size: 0.8em
 
+
+
+// References Section
 .references-section
   text-align: center
   padding: 6vh get-p-desktop(p-st)
@@ -254,6 +297,7 @@ header
   .container
     margin: 0
     padding: 0
+    max-width: 100%
     display: grid
     grid-template-columns: 25% 25% 25% 25%
     @include respond(small)
@@ -293,6 +337,9 @@ header
     @include respond(small)
       justify-self: center
 
+
+
+// Newsletter Section
 .newsletter-section
   text-align: center
   padding: 6vh 0
@@ -312,9 +359,30 @@ header
     input
       padding: 0 0.5em
 
+    .invalid
+      color: get-color(bg-red)
+      border-color: get-color(bg-red)
+
+    .valid
+      font-weight: bold
+      color: get-color(bg-green)
+      border-color: get-color(bg-green)
+
     button
       margin-left: 1em
 
+    .spinner-border
+      display: none
+
+
+
+// UTM Parser form
+.utm-parser
+  display: none
+
+
+
+// Footer Section
 footer
   padding: 4vh get-p-desktop(p-st)
   background-color: get-color(bg-black)
