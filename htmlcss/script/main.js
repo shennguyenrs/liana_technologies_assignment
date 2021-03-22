@@ -1,7 +1,7 @@
 /* Variables */
 
 const pattern = /^\S+@\S+.((\S+){2,3})$/;
-const url = "https://91.156.67.165:3001/db/customers";
+const url = "https://methodical-rope-303709.ey.r.appspot.com/db/customers";
 
 /* Functions definitions */
 
@@ -30,12 +30,21 @@ const handleSubmit = () => {
 
   if (checkEmail(email)) {
     const data = document.forms["post-data"];
+    const formData = new FormData(data);
+    const obj = Object.fromEntries(formData.entries());
+    const stringObj = JSON.stringify(obj);
 
     // Disable submit button
     $(".spinner-border").css("display", "inline-block");
     $(".form-group button").css("display", "none");
 
-    fetch(url, { method: "POST", body: new FormData(data) })
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json;charset=utf-8",
+      },
+      body: stringObj,
+    })
       .then((res) => {
         console.log("Success post data", res);
 
