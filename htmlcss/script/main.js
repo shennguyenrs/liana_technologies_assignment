@@ -23,7 +23,9 @@ const animateValue = (obj, start, end, duration) => {
 };
 
 // Handle submit newsletter & utm form
-const handleSubmit = () => {
+const handleSubmit = (e) => {
+  e.preventDefault();
+
   const email = document.querySelector(
     ".newsletter-section input[name='email']"
   ).value;
@@ -32,7 +34,6 @@ const handleSubmit = () => {
     const data = document.forms["post-data"];
     const formData = new FormData(data);
     const obj = Object.fromEntries(formData.entries());
-    const stringObj = JSON.stringify(obj);
 
     // Disable submit button
     $(".spinner-border").css("display", "inline-block");
@@ -41,12 +42,12 @@ const handleSubmit = () => {
     fetch(url, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json;charset=utf-8",
+        "Content-type": "application/json;charset=utf-8",
       },
-      body: stringObj,
+      body: JSON.stringify(obj),
     })
-      .then((res) => {
-        console.log("Success post data", res);
+      .then((_res) => {
+        console.log("Success post data");
 
         // Clear form after submit data
         const input = document.querySelectorAll("input[type='text']");
@@ -57,7 +58,7 @@ const handleSubmit = () => {
         // Display thank you message
         onOverlay();
       })
-      .catch((err) => console.log(err.message));
+      .catch((err) => console.log(err));
   } else {
     alert("Your email is wrong format");
   }

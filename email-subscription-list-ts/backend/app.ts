@@ -6,10 +6,12 @@ import appRouter from './controllers/appRouter';
 import logger from './utils/logger';
 import dbConnection from './utils/getConnect';
 import middleware from './utils/middleware';
+import corsOption from './utils/corsConfig';
 
 const app: express.Application = express();
 
 logger.info('Connecting to database...');
+
 dbConnection.connect((err: Error) => {
   if (err) {
     logger.error('Failed to connect database: ' + err.message);
@@ -20,7 +22,7 @@ dbConnection.connect((err: Error) => {
 });
 
 app.use(express.json());
-app.use(cors());
+app.use(cors(corsOption));
 app.use(middleware.reqLogger);
 
 app.use(express.static('build'));
