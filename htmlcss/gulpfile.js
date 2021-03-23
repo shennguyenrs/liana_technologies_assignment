@@ -21,6 +21,7 @@ const copy = async () => {
     "./styles/*.map",
     "./img/**/*",
     "./favicon.ico",
+    "./index.php",
   ])
     .pipe(copyFiles("./dist"))
     .pipe(dest("./dist"));

@@ -22,48 +22,6 @@ const animateValue = (obj, start, end, duration) => {
   window.requestAnimationFrame(step);
 };
 
-// Handle submit newsletter & utm form
-const handleSubmit = (e) => {
-  e.preventDefault();
-
-  const email = document.querySelector(
-    ".newsletter-section input[name='email']"
-  ).value;
-
-  if (checkEmail(email)) {
-    const data = document.forms["post-data"];
-    const formData = new FormData(data);
-    const obj = Object.fromEntries(formData.entries());
-
-    // Disable submit button
-    $(".spinner-border").css("display", "inline-block");
-    $(".form-group button").css("display", "none");
-
-    fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json;charset=utf-8",
-      },
-      body: JSON.stringify(obj),
-    })
-      .then((_res) => {
-        console.log("Success post data");
-
-        // Clear form after submit data
-        const input = document.querySelectorAll("input[type='text']");
-        input.forEach((item) => {
-          item.value = "";
-        });
-
-        // Display thank you message
-        onOverlay();
-      })
-      .catch((err) => console.log(err));
-  } else {
-    alert("Your email is wrong format");
-  }
-};
-
 // Check email format
 const checkEmail = (email) => email.match(pattern);
 
@@ -107,6 +65,19 @@ window.onload = () => {
         element.value = value;
       }
     });
+  } else {
+    const utmTags = [
+      "utm_source",
+      "utm_medium",
+      "utm_term",
+      "utm_campaign",
+      "utm_content",
+    ];
+
+    utmTags.forEach((item) => {
+      const element = document.querySelector("." + item);
+      element.value = "null";
+    });
   }
 
   // Invalid effect on email input
@@ -133,4 +104,48 @@ window.onload = () => {
       }
     }
   };
+
+  // Handle submit form and utm tags
+  const form = document.forms["post-data"];
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const email = document.querySelector(
+      ".newsletter-section input[name='email']"
+    ).value;
+
+    if (checkEmail(email)) {
+      const formData = new FormData(form);
+      const obj = Object.fromEntries(formData.entries());
+
+      // Disable submit button
+      $(".spinner-border").css("display", "inline-block");
+      $(".spinner-border").css("margin-left", "1em");
+      $(".form-group button").css("display", "none");
+
+      fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json;charset=utf-8",
+        },
+        body: JSON.stringify(obj),
+      })
+        .then((_res) => {
+          console.log("Success post data");
+
+          // Clear form after submit data
+          const input = document.querySelectorAll("input[type='text']");
+          input.forEach((item) => {
+            item.value = "";
+          });
+
+          // Display thank you message
+          onOverlay();
+        })
+        .catch((err) => console.log(err));
+    } else {
+      alert("Your email is wrong format");
+    }
+  });
 };

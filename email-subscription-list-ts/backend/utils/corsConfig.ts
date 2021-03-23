@@ -10,8 +10,8 @@ const corsOption = {
   //if (!origin || whiteList.indexOf(origin) !== -1) callback(null, true);
   //else callback(new Error('No allowed by CORS'), false);
   //},
-  //methods: ['GET', 'POST'],
-  //allowedHeaders: ['Content-Type'],
+  methods: ['GET', 'POST'],
+  allowedHeaders: ['Content-Type'],
   maxAge: 3600,
 };
 
