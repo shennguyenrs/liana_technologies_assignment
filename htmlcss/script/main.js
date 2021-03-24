@@ -62,7 +62,7 @@ window.onload = () => {
       const element = document.querySelector("." + tag);
 
       if (element) {
-        element.value = value;
+        element.value = value || "null";
       }
     });
   } else {

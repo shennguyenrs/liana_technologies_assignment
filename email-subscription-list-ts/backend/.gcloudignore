@@ -1,4 +1,9 @@
 node_modules/
 pem/
+
 .eslintcache
 .env
+.eslintrc.json
+.prettierrc.json
+Dockerfile
+.dockerignore
